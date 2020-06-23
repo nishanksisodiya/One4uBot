@@ -573,7 +573,7 @@ SLAP_TEMPLATES = [
     "quickscoped {victim}.", "put {victim} in check-mate.",
     "RSA-encrypted {victim} and deleted the private key.",
     "put {victim} in the friendzone.",
-    "slaps {victim} with a DMCA takedown request!"
+    "slaps {victim} with a DMCA takedown request!",
 ]
 
 ITEMS = [
@@ -628,6 +628,14 @@ HIT = [
     "slaps",
     "smacks",
     "bashes",
+]
+
+FUXK_TEMPLATES = [
+    "bends over {victim} and slowly inserts {item}"
+]
+
+FUX_ITEMS = [
+    "kane"
 ]
 
 WHERE = ["in the chest", "on the head", "on the butt", "on the crotch"]
@@ -726,6 +734,45 @@ async def slap(replied_user, event):
 
     caption = "..." + temp.format(
         victim=slapped, item=item, hits=hit, throws=throw, where=where)
+
+    return caption
+
+
+@register(pattern="^.fuxk(?: |$)(.*)", outgoing=True)
+async def who(event):
+    """ slaps a user, or get slapped if not a reply. """
+    replied_user = await get_user_from_event(event)
+    if replied_user:
+        replied_user = replied_user[0]
+    else:
+        return
+    caption = await fuxk(replied_user, event)
+
+    try:
+        await event.edit(caption)
+
+    except BaseException:
+        await event.edit(
+            "`Can't fuxk this person, need to fetch some dildos and lube !!`"
+        )
+
+
+async def fuxk(replied_user, event):
+    """ Construct a funny slap sentence !! """
+    user_id = replied_user.id
+    first_name = replied_user.first_name
+    username = replied_user.username
+
+    if username:
+        fuxxed = "@{}".format(username)
+    else:
+        fuxxed = f"[{first_name}](tg://user?id={user_id})"
+
+    temp = choice(FUXK_TEMPLATES)
+    item = choice(FUX_ITEMS)
+
+    caption = "..." + temp.format(
+        victim=fuxxed, item=item)
 
     return caption
 
@@ -1377,6 +1424,8 @@ CMD_HELP.update({
 \nUsage: Make your userbot react to everything.\
 \n\n.slap\
 \nUsage: reply to slap them with random objects !!\
+\n\n.fuxk\
+\nUsage: see yourself XD !!\
 \n\n.cry\
 \nUsage: y u du dis, i cri.\
 \n\n.shg\
