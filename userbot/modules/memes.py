@@ -73,77 +73,77 @@ ZALG_LIST = [[
     " ͚",
     " ",
 ],
-             [
-                 " ̍",
-                 " ̎",
-                 " ̄",
-                 " ̅",
-                 " ̿",
-                 " ̑",
-                 " ̆",
-                 " ̐",
-                 " ͒",
-                 " ͗",
-                 " ͑",
-                 " ̇",
-                 " ̈",
-                 " ̊",
-                 " ͂",
-                 " ̓",
-                 " ̈́",
-                 " ͊",
-                 " ͋",
-                 " ͌",
-                 " ̃",
-                 " ̂",
-                 " ̌",
-                 " ͐",
-                 " ́",
-                 " ̋",
-                 " ̏",
-                 " ̽",
-                 " ̉",
-                 " ͣ",
-                 " ͤ",
-                 " ͥ",
-                 " ͦ",
-                 " ͧ",
-                 " ͨ",
-                 " ͩ",
-                 " ͪ",
-                 " ͫ",
-                 " ͬ",
-                 " ͭ",
-                 " ͮ",
-                 " ͯ",
-                 " ̾",
-                 " ͛",
-                 " ͆",
-                 " ̚",
-             ],
-             [
-                 " ̕",
-                 " ̛",
-                 " ̀",
-                 " ́",
-                 " ͘",
-                 " ̡",
-                 " ̢",
-                 " ̧",
-                 " ̨",
-                 " ̴",
-                 " ̵",
-                 " ̶",
-                 " ͜",
-                 " ͝",
-                 " ͞",
-                 " ͟",
-                 " ͠",
-                 " ͢",
-                 " ̸",
-                 " ̷",
-                 " ͡",
-             ]]
+    [
+        " ̍",
+        " ̎",
+        " ̄",
+        " ̅",
+        " ̿",
+        " ̑",
+        " ̆",
+        " ̐",
+        " ͒",
+        " ͗",
+        " ͑",
+        " ̇",
+        " ̈",
+        " ̊",
+        " ͂",
+        " ̓",
+        " ̈́",
+        " ͊",
+        " ͋",
+        " ͌",
+        " ̃",
+        " ̂",
+        " ̌",
+        " ͐",
+        " ́",
+        " ̋",
+        " ̏",
+        " ̽",
+        " ̉",
+        " ͣ",
+        " ͤ",
+        " ͥ",
+        " ͦ",
+        " ͧ",
+        " ͨ",
+        " ͩ",
+        " ͪ",
+        " ͫ",
+        " ͬ",
+        " ͭ",
+        " ͮ",
+        " ͯ",
+        " ̾",
+        " ͛",
+        " ͆",
+        " ̚",
+    ],
+    [
+        " ̕",
+        " ̛",
+        " ̀",
+        " ́",
+        " ͘",
+        " ̡",
+        " ̢",
+        " ̧",
+        " ̨",
+        " ̴",
+        " ̵",
+        " ̶",
+        " ͜",
+        " ͝",
+        " ͞",
+        " ͟",
+        " ͠",
+        " ͢",
+        " ̸",
+        " ̷",
+        " ͡",
+    ]]
 
 EMOJIS = [
     "😂",
@@ -650,6 +650,147 @@ FUX_ITEMS = [
 
 WHERE = ["in the chest", "on the head", "on the butt", "on the crotch"]
 
+mid_fing = [
+    str("```...................."
+        "../´¯/) \r\n"
+        "...................."
+        ",/¯../ \r\n"
+        ".................../"
+        "..../ \r\n"
+        "............./´¯/\'."
+        "..\'/´¯¯`·¸ \r\n"
+        "........../\'/.../.."
+        "../......./¨¯\\ \r\n"
+        "........(\'(...´...´"
+        ".... ¯~/\'...\') \r"
+        "\n"
+        ".........\\........."
+        "........\'...../ \r"
+        "\n"
+        "..........\'\'...\\."
+        "......... _.·´ \r\n"
+        "............\\......"
+        "........( \r\n"
+        "..............\\...."
+        ".........\\...```"),
+    str("```        _____\r\n"
+        "       |    ||\r\n"
+        "       |\\___/|\r\n"
+        "       |     |\r\n"
+        "       |     |\r\n"
+        "       |     |\r\n"
+        "       |     |\r\n"
+        "       |     |\r\n"
+        "       |     |\r\n"
+        "   ____||____|____\r"
+        "\n"
+        "  /    |     |     "
+        "\\\r\n"
+        " /     |     |    | "
+        "\\\r\n"
+        "|      |     |    | "
+        " |\r\n"
+        "|      |     |    | "
+        " |\r\n"
+        "|                 | "
+        " |\r\n"
+        "|                 | "
+        " |\r\n"
+        "|                   "
+        " /\r\n"
+        "|                   "
+        "/\r\n"
+        " \\                 "
+        "/\r\n"
+        "  \\               /"
+        "\r\n"
+        "   |             |\r"
+        "\n"
+        "   |             |```"),
+    str("```.                    "
+        " /\"\\\r\n"
+        "                    "
+        "|\\./|\r\n"
+        "                    "
+        "|   |\r\n"
+        "                    "
+        "|   |\r\n"
+        "                    "
+        "|>~<|\r\n"
+        "                    "
+        "|   |\r\n"
+        "                 /\'"
+        "\\|   |/\'\\..\r\n"
+        "             /~\\|  "
+        " |   |   | \\\r\n"
+        "            |   =[@]"
+        "=   |   |  \\\r\n"
+        "            |   |   "
+        "|   |   |   \\\r\n"
+        "            | ~   ~ "
+        "  ~   ~ |`   )\r\n"
+        "            |       "
+        "            /\r\n"
+        "             \\     "
+        "            /\r\n"
+        "              \\    "
+        "           /\r\n"
+        "               \\   "
+        " _____    /\r\n"
+        "                |--/"
+        "/\'\'`\\--|\r\n"
+        "                | (("
+        " +==)) |\r\n"
+        "                |--"
+        "\\_|_//--|```"),
+    str("```________________$$$$"
+   "\r\n"
+   "______________$$____"
+   "$$\r\n"
+   "______________$$____"
+   "$$\r\n"
+   "______________$$____"
+   "$$\r\n"
+   "______________$$____"
+   "$$\r\n"
+   "______________$$____"
+   "$$\r\n"
+   "__________$$$$$$____"
+   "$$$$$$\r\n"
+   "________$$____$$____"
+   "$$____$$$$\r\n"
+   "________$$____$$____"
+   "$$____$$__$$\r\n"
+   "$$$$$$__$$____$$____"
+   "$$____$$____$$\r\n"
+   "$$____$$$$__________"
+   "______$$____$$\r\n"
+   "$$______$$__________"
+   "____________$$\r\n"
+   "__$$____$$__________"
+   "____________$$\r\n"
+   "___$$$__$$__________"
+   "____________$$\r\n"
+   "____$$______________"
+   "____________$$\r\n"
+   "_____$$$____________"
+   "____________$$\r\n"
+   "______$$____________"
+   "__________$$$\r\n"
+   "_______$$$__________"
+   "__________$$\r\n"
+   "________$$__________"
+   "__________$$\r\n"
+   "_________$$$________"
+   "________$$$\r\n"
+   "__________$$________"
+   "________$$\r\n"
+   "__________$$$$$$$$$$"
+   "$$$$$$$$$$```"
+    )
+]
+
+
 # ===========================================
 
 
@@ -936,13 +1077,13 @@ async def zal(zgfy):
 
             if textz == 0:
                 charac = charac.strip() + \
-                    choice(ZALG_LIST[0]).strip()
+                         choice(ZALG_LIST[0]).strip()
             elif textz == 1:
                 charac = charac.strip() + \
-                    choice(ZALG_LIST[1]).strip()
+                         choice(ZALG_LIST[1]).strip()
             else:
                 charac = charac.strip() + \
-                    choice(ZALG_LIST[2]).strip()
+                         choice(ZALG_LIST[2]).strip()
 
         reply_text.append(charac)
 
@@ -1070,7 +1211,7 @@ async def moon(event):
     except BaseException:
         return
 
-                   
+
 @register(outgoing=True, pattern="^.earth$")
 async def earth(event):
     deq = deque(list("🌏🌍🌎🌎🌍🌏🌍🌎"))
@@ -1080,9 +1221,9 @@ async def earth(event):
             await event.edit("".join(deq))
             deq.rotate(1)
     except BaseException:
-        return                              
+        return
 
-                      
+
 @register(outgoing=True, pattern="^.clock$")
 async def clock(event):
     deq = deque(list("🕙🕘🕗🕖🕕🕔🕓🕒🕑🕐🕛"))
@@ -1094,7 +1235,7 @@ async def clock(event):
     except BaseException:
         return
 
-                      
+
 @register(outgoing=True, pattern="^.rain$")
 async def rain(event):
     deq = deque(list("☀️🌤⛅️🌥☁️🌧⛈"))
@@ -1106,7 +1247,7 @@ async def rain(event):
     except BaseException:
         return
 
-                      
+
 @register(outgoing=True, pattern="^.love$")
 async def love(event):
     deq = deque(list("❤️🧡💛💚💙💜🖤💕💞💓💗💖💘💝"))
@@ -1117,8 +1258,8 @@ async def love(event):
             deq.rotate(1)
     except BaseException:
         return
-              
-                      
+
+
 @register(outgoing=True, pattern="^.mock(?: |$)(.*)")
 async def spongemocktext(mock):
     """ Do it and find the real fun. """
@@ -1257,32 +1398,31 @@ async def typewriter(typew):
         await sleep(sleep_time)
 
 
-@register(outgoing=True, pattern="^.fail$")  
+@register(outgoing=True, pattern="^.fail$")
 async def fail(e):
-   if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit("`\n▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ `" 
-                     "`\n████▌▄▌▄▐▐▌█████ `"    
-                     "`\n████▌▄▌▄▐▐▌▀████ `"       
-                     "`\n▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ `")    
+    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+        await e.edit("`\n▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ `"
+                     "`\n████▌▄▌▄▐▐▌█████ `"
+                     "`\n████▌▄▌▄▐▐▌▀████ `"
+                     "`\n▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ `")
 
 
 @register(outgoing=True, pattern="^.lol$")
 async def lol(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit("`\n╱┏┓╱╱╱╭━━━╮┏┓╱╱╱╱ `" 
-                     "`\n╱┃┃╱╱╱┃╭━╮┃┃┃╱╱╱╱ `"       
-                     "`\n╱┃┗━━┓┃╰━╯┃┃┗━━┓╱ `" 
-                     "`\n╱┗━━━┛╰━━━╯┗━━━┛╱ `") 
- 
- 
-                                                                                   
+        await e.edit("`\n╱┏┓╱╱╱╭━━━╮┏┓╱╱╱╱ `"
+                     "`\n╱┃┃╱╱╱┃╭━╮┃┃┃╱╱╱╱ `"
+                     "`\n╱┃┗━━┓┃╰━╯┃┃┗━━┓╱ `"
+                     "`\n╱┗━━━┛╰━━━╯┗━━━┛╱ `")
+
+
 @register(outgoing=True, pattern="^.lool$")
 async def lool(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("`\n╭╭━━━╮╮┈┈┈┈┈┈┈┈┈┈\n┈┃╭━━╯┈┈┈┈▕╲▂▂╱▏┈\n┈┃┃╱▔▔▔▔▔▔▔▏╱▋▋╮┈`"
                      "`\n┈┃╰▏┃╱╭╮┃╱╱▏╱╱▆┃┈\n┈╰━▏┗━╰╯┗━╱╱╱╰┻┫┈\n┈┈┈▏┏┳━━━━▏┏┳━━╯┈`"
                      "`\n┈┈┈▏┃┃┈┈┈┈▏┃┃┈┈┈┈ `")
-                     
+
 
 @register(outgoing=True, pattern="^.stfu$")
 async def stfu(e):
@@ -1292,25 +1432,25 @@ async def stfu(e):
                      "`\n█──────██──────██───────██──██──█`"
                      "`\n█──██▄▄████──████──███▄▄██──██──█`"
                      "`\n█▄────▀████──████────█████──██──█`"
-                     "`\n█▀▀██──████──████──███████──██──█`"        
-                     "`\n█──────████──████──███████──────█`"      
-                     "`\n██▄▄▄▄█████▄▄████▄▄████████▄▄▄▄██`"    
-                     "`\n█████████████████████████████████`")    
+                     "`\n█▀▀██──████──████──███████──██──█`"
+                     "`\n█──────████──████──███████──────█`"
+                     "`\n██▄▄▄▄█████▄▄████▄▄████████▄▄▄▄██`"
+                     "`\n█████████████████████████████████`")
 
 
 @register(outgoing=True, pattern="^.gtfo$")
 async def gtfo(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit("`\n███████████████████████████████ `" 
-                     "`\n█▀▀▀▀▀▀▀█▀▀▀▀▀▀█▀▀▀▀▀▀▀█▀▀▀▀▀▀█ `" 
-                     "`\n█───────█──────█───────█──────█ `" 
-                     "`\n█──███──███──███──███▄▄█──██──█ `" 
-                     "`\n█──███▄▄███──███─────███──██──█ `" 
-                     "`\n█──██───███──███──██████──██──█ `" 
-                     "`\n█──▀▀▀──███──███──██████──────█ `" 
-                     "`\n█▄▄▄▄▄▄▄███▄▄███▄▄██████▄▄▄▄▄▄█ `" 
-                     "`\n███████████████████████████████ `")  
-                                  
+        await e.edit("`\n███████████████████████████████ `"
+                     "`\n█▀▀▀▀▀▀▀█▀▀▀▀▀▀█▀▀▀▀▀▀▀█▀▀▀▀▀▀█ `"
+                     "`\n█───────█──────█───────█──────█ `"
+                     "`\n█──███──███──███──███▄▄█──██──█ `"
+                     "`\n█──███▄▄███──███─────███──██──█ `"
+                     "`\n█──██───███──███──██████──██──█ `"
+                     "`\n█──▀▀▀──███──███──██████──────█ `"
+                     "`\n█▄▄▄▄▄▄▄███▄▄███▄▄██████▄▄▄▄▄▄█ `"
+                     "`\n███████████████████████████████ `")
+
 
 @register(outgoing=True, pattern="^.nih$")
 async def nih(e):
@@ -1324,21 +1464,21 @@ async def nih(e):
                      "`\n🌹<\  *tapi boong`")
 
 
-@register(outgoing=True, pattern="^.fag$")  
+@register(outgoing=True, pattern="^.fag$")
 async def gtfo(e):
-   if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit("`\n█████████`" 
-                     "`\n█▄█████▄█`"    
-                     "`\n█▼▼▼▼▼`"       
+    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+        await e.edit("`\n█████████`"
+                     "`\n█▄█████▄█`"
+                     "`\n█▼▼▼▼▼`"
                      "`\n█       STFU FAGGOT'S`"
                      "`\n█▲▲▲▲▲`"
                      "`\n█████████`"
-                    "`\n ██   ██`")               
+                     "`\n ██   ██`")
 
 
-@register(outgoing=True, pattern="^.taco$")  
+@register(outgoing=True, pattern="^.taco$")
 async def taco(e):
-   if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("\n{\__/}"
                      "\n(●_●)"
                      "\n( >🌮 Want a taco?")
@@ -1356,50 +1496,29 @@ async def sayhi(e):
         "\n💰🔷💰💰💰🔷💰💰💰🔷💰💰"
         "\n💰🔷💰💰💰🔷💰💰🔷🔷🔷💰"
         "\n💰💰💰💰💰💰💰💰💰💰💰💰")
-       
+
+
 @register(outgoing=True, pattern="^.midfing$")
 async def sayhi(e):
-    await e.edit(
-        "...................."
-   "../´¯/) \r\n"
-   "...................."
-   ",/¯../ \r\n"
-   ".................../"
-   "..../ \r\n"
-   "............./´¯/\'."
-   "..\'/´¯¯`·¸ \r\n"
-   "........../\'/.../.."
-   "../......./¨¯\\ \r\n"
-   "........(\'(...´...´"
-   ".... ¯~/\'...\') \r"
-   "\n"
-   ".........\\........."
-   "........\'...../ \r"
-   "\n"
-   "..........\'\'...\\."
-   "......... _.·´ \r\n"
-   "............\\......"
-   "........( \r\n"
-   "..............\\...."
-   ".........\\...")
+    await e.edit(choice(mid_fing))
 
 
-@register(outgoing=True, pattern="^.gey$")            
+@register(outgoing=True, pattern="^.gey$")
 async def gey(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("`\n┈┈┈╭━━━━━╮┈┈┈┈┈\n┈┈┈┃┊┊┊┊┊┃┈┈┈┈┈`"
                      "`\n┈┈┈┃┊┊╭━╮┻╮┈┈┈┈\n┈┈┈╱╲┊┃▋┃▋┃┈┈┈┈\n┈┈╭┻┊┊╰━┻━╮┈┈┈┈`"
                      "`\n┈┈╰┳┊╭━━━┳╯┈┈┈┈\n┈┈┈┃┊┃╰━━┫┈NIGGA U GEY`"
-                    "\n┈┈┈┈┈┈┏━┓┈┈┈┈┈┈")    
+                     "\n┈┈┈┈┈┈┏━┓┈┈┈┈┈┈")
 
 
-@register(outgoing=True, pattern="^.gay$")            
+@register(outgoing=True, pattern="^.gay$")
 async def gey(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("`\n┈┈┈╭━━━━━╮┈┈┈┈┈\n┈┈┈┃┊┊┊┊┊┃┈┈┈┈┈`"
                      "`\n┈┈┈┃┊┊╭━╮┻╮┈┈┈┈\n┈┈┈╱╲┊┃▋┃▋┃┈┈┈┈\n┈┈╭┻┊┊╰━┻━╮┈┈┈┈`"
                      "`\n┈┈╰┳┊╭━━━┳╯┈┈┈┈\n┈┈┈┃┊┃╰━━┫┈BAPAQ U GAY`"
-                    "\n┈┈┈┈┈┈┏━┓┈┈┈┈┈┈")    
+                     "\n┈┈┈┈┈┈┏━┓┈┈┈┈┈┈")
 
 
 @register(outgoing=True, pattern="^.bot$")
@@ -1423,75 +1542,75 @@ async def nou(e):
         await e.edit("`\n┈╭╮╭╮\n┈┃┃┃┃\n╭┻┗┻┗╮`"
                      "`\n┃┈▋┈▋┃\n┃┈╭▋━╮━╮\n┃┈┈╭╰╯╰╯╮`"
                      "`\n┫┈┈  NoU\n┃┈╰╰━━━━╯`"
-"`\n┗━━┻━┛`")                   
+                     "`\n┗━━┻━┛`")
 
-                                                                                    
+
 CMD_HELP.update({
     "memes":
-    ".cowsay\
-\nUsage: cow which says things.\
-\n\n:/\
-\nUsage: Check yourself ;)\
-\n\n-_-\
-\nUsage: Ok...\
-\n\n;_;\
-\nUsage: Like `-_-` but crying.\
-\n\n.cp\
-\nUsage: Copypasta the famous meme\
-\n\n.vapor\
-\nUsage: Vaporize everything!\
-\n\n.str\
-\nUsage: Stretch it.\
-\n\n.zal\
-\nUsage: Invoke the feeling of chaos.\
-\n\nOof\
-\nUsage: Ooooof\
-\n\n.moon\
-\nUsage: kensar moon animation.\
-\n\n.clock\
-\nUsage: kensar clock animation.\
-\n\n.hi\
-\nUsage: Greet everyone!\
-\n\n.coinflip <heads/tails>\
-\nUsage: Flip a coin !!\
-\n\n.owo\
-\nUsage: UwU\
-\n\n.react\
-\nUsage: Make your userbot react to everything.\
-\n\n.slap\
-\nUsage: reply to slap them with random objects !!\
-\n\n.fuxk\
-\nUsage: see yourself XD !!\
-\n\n.cry\
-\nUsage: y u du dis, i cri.\
-\n\n.shg\
-\nUsage: Shrug at it !!\
-\n\n.run\
-\nUsage: Let Me Run, run, RUNNN!\
-\n\n.chase\
-\nUsage: You better start running\
-\n\n.metoo\
-\nUsage: Haha yes\
-\n\n.mock\
-\nUsage: Do it and find the real fun.\
-\n\n.clap\
-\nUsage: Praise people!\
-\n\n.f <emoji/character>\
-\nUsage: Pay Respects.\
-\n\n.bt\
-\nUsage: Believe me, you will find this useful.\
-\n\n.type\
-\nUsage: Just a small command to make your keyboard become a typewriter!\
-\n\n.lfy <query>\
-\nUsage: Let me Google that for you real quick !!\
-\n\n.decide [Alternates: (.yes, .no, .maybe)]\
-\nUsage: Make a quick decision.\
-\n\n.scam <action> <time>\
-\n[Available Actions: (typing, contact, game, location, voice, round, video, photo, document, cancel)]\
-\nUsage: Create fake chat actions, for fun. (Default action: typing)\
-\n\nAnd many more\
-\n.nou ; .bot ; .gey ; .gey ; .tf ; .paw ; .taco ; .nih ;\
-\n.fag ; .gtfo ; .stfu ; .lol ; .lool ; .fail ; .love\
-\n.rain ; .earth ; .iwi ; .sayhi\
-\n\n\nThanks to 🅱️ottom🅱️ext🅱️ot (@NotAMemeBot) for some of these."
+        ".cowsay\
+    \nUsage: cow which says things.\
+    \n\n:/\
+    \nUsage: Check yourself ;)\
+    \n\n-_-\
+    \nUsage: Ok...\
+    \n\n;_;\
+    \nUsage: Like `-_-` but crying.\
+    \n\n.cp\
+    \nUsage: Copypasta the famous meme\
+    \n\n.vapor\
+    \nUsage: Vaporize everything!\
+    \n\n.str\
+    \nUsage: Stretch it.\
+    \n\n.zal\
+    \nUsage: Invoke the feeling of chaos.\
+    \n\nOof\
+    \nUsage: Ooooof\
+    \n\n.moon\
+    \nUsage: kensar moon animation.\
+    \n\n.clock\
+    \nUsage: kensar clock animation.\
+    \n\n.hi\
+    \nUsage: Greet everyone!\
+    \n\n.coinflip <heads/tails>\
+    \nUsage: Flip a coin !!\
+    \n\n.owo\
+    \nUsage: UwU\
+    \n\n.react\
+    \nUsage: Make your userbot react to everything.\
+    \n\n.slap\
+    \nUsage: reply to slap them with random objects !!\
+    \n\n.fuxk\
+    \nUsage: see yourself XD !!\
+    \n\n.cry\
+    \nUsage: y u du dis, i cri.\
+    \n\n.shg\
+    \nUsage: Shrug at it !!\
+    \n\n.run\
+    \nUsage: Let Me Run, run, RUNNN!\
+    \n\n.chase\
+    \nUsage: You better start running\
+    \n\n.metoo\
+    \nUsage: Haha yes\
+    \n\n.mock\
+    \nUsage: Do it and find the real fun.\
+    \n\n.clap\
+    \nUsage: Praise people!\
+    \n\n.f <emoji/character>\
+    \nUsage: Pay Respects.\
+    \n\n.bt\
+    \nUsage: Believe me, you will find this useful.\
+    \n\n.type\
+    \nUsage: Just a small command to make your keyboard become a typewriter!\
+    \n\n.lfy <query>\
+    \nUsage: Let me Google that for you real quick !!\
+    \n\n.decide [Alternates: (.yes, .no, .maybe)]\
+    \nUsage: Make a quick decision.\
+    \n\n.scam <action> <time>\
+    \n[Available Actions: (typing, contact, game, location, voice, round, video, photo, document, cancel)]\
+    \nUsage: Create fake chat actions, for fun. (Default action: typing)\
+    \n\nAnd many more\
+    \n.nou ; .bot ; .gey ; .gey ; .tf ; .paw ; .taco ; .nih ;\
+    \n.fag ; .gtfo ; .stfu ; .lol ; .lool ; .fail ; .love\
+    \n.rain ; .earth ; .iwi ; .sayhi\
+    \n\n\nThanks to 🅱️ottom🅱️ext🅱️ot (@NotAMemeBot) for some of these."
 })
