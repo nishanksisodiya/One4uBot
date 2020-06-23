@@ -631,12 +631,21 @@ HIT = [
 ]
 
 FUXK_TEMPLATES = [
-    "bends over {victim} and slowly inserts {item}"
+    "bends over {victim} and slowly inserts {item}",
+    "Revenge? Nah, I’m too lazy. I'm gonna sit here and let karma fuck {victim} up.",
+    "I don't hold grudges, {victim} just become irrelevant.",
+    "Row row row your boat gently the fuck away from me.",
+    "Can't you see the \"fuck you\" in my smile?",
+    "I hope one day, you choke on all the shit you talk.",
+    "Everyone has the right to be stupid, but you’re abusing the privilege.",
+    "Stupidity is not a crime so you are free to go."
+
 ]
 
 FUX_ITEMS = [
     "a kane",
-    "6 ft family dosa"
+    "6 ft family dosa",
+    "a cactus"
 ]
 
 WHERE = ["in the chest", "on the head", "on the butt", "on the crotch"]
