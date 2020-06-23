@@ -635,7 +635,8 @@ FUXK_TEMPLATES = [
 ]
 
 FUX_ITEMS = [
-    "kane"
+    "a kane",
+    "6 ft family dosa"
 ]
 
 WHERE = ["in the chest", "on the head", "on the butt", "on the crotch"]
