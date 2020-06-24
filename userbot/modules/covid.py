@@ -39,7 +39,8 @@ async def corona(event):
     selector = event.pattern_match.group(1)
     region = event.pattern_match.group(2)
     url = urlopen('https://api.covid19india.org/v3/data.json')
-    raw_data = load(url.read())
+    with urlopen('http://python.org/') as response:
+        raw_data = load(response.read())
 
     if selector == "-s":
         region = region.upper()
