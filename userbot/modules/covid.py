@@ -60,7 +60,7 @@ async def corona(event):
         output_text += f"`Recovered   : {raw_data[region]['total'].get('recovered', 0)} ({delta_rec })`\n"
         output_text += (
             "`Last update : "
-            f"{datetime.fromisoformat(raw_data['meta']['last_update']).strftime('%A, %d. %B %Y %I:%M%p %Z')}`\n"
+            f"{datetime.fromisoformat(raw_data[region]['meta']['last_update']).strftime('%A, %d. %B %Y %I:%M%p %Z')}`\n"
         )
         output_text += f"Data provided by [Covid19India.org](https://api.covid19india.org/)"
 
