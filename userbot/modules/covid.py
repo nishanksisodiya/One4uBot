@@ -33,12 +33,13 @@ async def corona(event):
     await event.edit(f"Corona Virus Info in {country}:\n\n{output_text}")
 
 
-@register(outgoing=True, pattern="^.covidindia (.*) (.*) (.*)")
+@register(outgoing=True, pattern="^.covidindia (.*)")
 async def corona(event):
     await event.edit("`Processing...`")
-    selector = event.pattern_match.group(1)
-    state = event.pattern_match.group(2).upper()
-    district = event.pattern_match.group(3).title()
+    args = event.pattern_match.group(1).split()
+    selector = args[0]
+    state = args[1].upper()
+    district = ""
     with urlopen("https://api.covid19india.org/v3/data.json") as url:
         raw_data = loads(url.read().decode())
 
@@ -66,6 +67,7 @@ async def corona(event):
         output_text += f"Data provided by [Covid19India.org](https://api.covid19india.org/)"
 
     elif selector == "-r":
+        district = args[2].title()
         data = raw_data[state][district]
         delta = data.get('delta', "N/A")
         if delta == "N/A":
@@ -91,7 +93,7 @@ async def corona(event):
     else:
         output_text = "No information yet about this country!"
 
-    await event.edit(f"Corona Virus Info in {region}:\n\n{output_text}")
+    await event.edit(f"Corona Virus Info in {state}{', ' + district}:\n\n{output_text}")
 
 
 CMD_HELP.update({
