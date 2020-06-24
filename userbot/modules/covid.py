@@ -9,7 +9,7 @@ from covid import Covid
 from userbot import CMD_HELP
 from userbot.events import register
 from json import load
-from urllib import urlopen
+from urllib.request import urlopen
 
 
 @register(outgoing=True, pattern="^.covid (.*)")
