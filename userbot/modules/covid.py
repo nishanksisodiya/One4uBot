@@ -34,7 +34,7 @@ async def corona(event):
 
 
 @register(outgoing=True, pattern="^.covidindia (.*)")
-async def corona(event):
+async def corona_india(event):
     await event.edit("`Processing...`")
     args = event.pattern_match.group(1).split(" ", 2)
     selector = args[0]
@@ -44,54 +44,63 @@ async def corona(event):
         raw_data = loads(url.read().decode())
 
     if selector == "-s":
-        data = raw_data[state]
-        delta = raw_data[state].get('delta', "N/A")
-        if delta == "N/A":
-            delta_cnf = "N/A"
-            delta_dec = "N/A"
-            delta_rec = "N/A"
+        if state in raw_data:
+            data = raw_data[state]
+            delta = raw_data[state].get('delta', "N/A")
+            if delta == "N/A":
+                delta_cnf = "N/A"
+                delta_dec = "N/A"
+                delta_rec = "N/A"
+
+            else:
+                delta_cnf = data['delta'].get('confirmed', 0)
+                delta_dec = data['delta'].get('deceased', 0)
+                delta_rec = data['delta'].get('recovered', 0)
+
+            output_text = f"`Confirmed    : {data['total'].get('confirmed', 0)} ({delta_cnf})`\n"
+            output_text += f"`Active      : {data['total'].get('confirmed', 0) - (data['total'].get('recovered', 0) + data['total'].get('deceased', 0))}`\n"
+            output_text += f"`Deaths      : {data['total'].get('deceased', 0)} ({delta_dec})`\n"
+            output_text += f"`Recovered   : {data['total'].get('recovered', 0)} ({delta_rec})`\n"
+            output_text += (
+                "`Last update : "
+                f"{datetime.fromisoformat(raw_data[state]['meta']['last_updated']).strftime('%A, %d. %B %Y %I:%M%p %Z')}`\n"
+            )
+            output_text += f"Data provided by [Covid19India.org](https://api.covid19india.org/)"
 
         else:
-            delta_cnf = data['delta'].get('confirmed', 0)
-            delta_dec = data['delta'].get('deceased', 0)
-            delta_rec = data['delta'].get('recovered', 0)
-
-        output_text = f"`Confirmed    : {data['total'].get('confirmed', 0)} ({ delta_cnf })`\n"
-        output_text += f"`Active      : {data['total'].get('confirmed', 0) - ( data['total'].get('recovered', 0) + data['total'].get('deceased', 0) )}`\n"
-        output_text += f"`Deaths      : {data['total'].get('deceased', 0)} ({ delta_dec })`\n"
-        output_text += f"`Recovered   : {data['total'].get('recovered', 0)} ({delta_rec })`\n"
-        output_text += (
-            "`Last update : "
-            f"{datetime.fromisoformat(raw_data[state]['meta']['last_updated']).strftime('%A, %d. %B %Y %I:%M%p %Z')}`\n"
-        )
-        output_text += f"Data provided by [Covid19India.org](https://api.covid19india.org/)"
+            output_text = f"Invalid State code {state}"
 
     elif selector == "-r":
         district = args[2].title()
-        data = raw_data[state]['districts'][district]
-        delta = data.get('delta', "N/A")
-        if delta == "N/A":
-            delta_cnf = "N/A"
-            delta_dec = "N/A"
-            delta_rec = "N/A"
+        if state in raw_data[state] and district in raw_data[state]['districts']:
+            data = raw_data[state]['districts'][district]
+            delta = data.get('delta', "N/A")
+            if delta == "N/A":
+                delta_cnf = "N/A"
+                delta_dec = "N/A"
+                delta_rec = "N/A"
+
+            else:
+                delta_cnf = data['delta'].get('confirmed', 0)
+                delta_dec = data['delta'].get('deceased', 0)
+                delta_rec = data['delta'].get('recovered', 0)
+
+            output_text = f"`Confirmed    : {data['total'].get('confirmed', 0)} ({delta_cnf})`\n"
+            output_text += f"`Active      : {data['total'].get('confirmed', 0) - (data['total'].get('recovered', 0) + data['total'].get('deceased', 0))}`\n"
+            output_text += f"`Deaths      : {data['total'].get('deceased', 0)} ({delta_dec})`\n"
+            output_text += f"`Recovered   : {data['total'].get('recovered', 0)} ({delta_rec})`\n"
+            output_text += (
+                "`Last update : "
+                f"{datetime.fromisoformat(raw_data[state]['meta']['last_updated']).strftime('%A, %d. %B %Y %I:%M%p %Z')}`\n"
+            )
+            output_text += f"Data provided by [Covid19India.org](https://api.covid19india.org/)"
 
         else:
-            delta_cnf = data['delta'].get('confirmed', 0)
-            delta_dec = data['delta'].get('deceased', 0)
-            delta_rec = data['delta'].get('recovered', 0)
-
-        output_text = f"`Confirmed    : {data['total'].get('confirmed', 0)} ({ delta_cnf })`\n"
-        output_text += f"`Active      : {data['total'].get('confirmed', 0) - ( data['total'].get('recovered', 0) + data['total'].get('deceased', 0) )}`\n"
-        output_text += f"`Deaths      : {data['total'].get('deceased', 0)} ({ delta_dec })`\n"
-        output_text += f"`Recovered   : {data['total'].get('recovered', 0)} ({delta_rec })`\n"
-        output_text += (
-            "`Last update : "
-            f"{datetime.fromisoformat(raw_data[state]['meta']['last_updated']).strftime('%A, %d. %B %Y %I:%M%p %Z')}`\n"
-        )
-        output_text += f"Data provided by [Covid19India.org](https://api.covid19india.org/)"
+            output_text = f"Invalid State code {state} or District {district}"
 
     else:
-        output_text = "No information yet about this country!"
+        event.edit(f"Malformed query [one of the reason for this error could be invalid selector __see help__]")
+        return
 
     await event.edit(f"Corona Virus Info in {state}{', ' + district}:\n\n{output_text}")
 
@@ -99,5 +108,10 @@ async def corona(event):
 CMD_HELP.update({
     "covid":
         ".covid <country>"
-        "\nUsage: Get an information about data covid-19 in your country.\n"
+        "\nUsage: Get an information about data covid-19 in your country.\n\n"
+        ".covidindia <selector> <args>"
+        "\nUsage: Get an information about data covid-19 in your State/UT/District.\n"
+        "\t<selector>: '-s' for State/UT, '-r' for district\n"
+        "\tFor State: specify State/UT code after selector __eg. -s mp__\n"
+        "\tFor Disrtict: specify State/UT code and District name after selector __eg. -s dl new delhi__\n"
 })
