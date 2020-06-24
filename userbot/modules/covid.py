@@ -33,34 +33,58 @@ async def corona(event):
     await event.edit(f"Corona Virus Info in {country}:\n\n{output_text}")
 
 
-@register(outgoing=True, pattern="^.covidindia (.*) (.*)")
+@register(outgoing=True, pattern="^.covidindia (.*) (.*) (.*)")
 async def corona(event):
     await event.edit("`Processing...`")
     selector = event.pattern_match.group(1)
-    region = event.pattern_match.group(2)
+    state = event.pattern_match.group(2).upper()
+    district = event.pattern_match.group(3).title()
     with urlopen("https://api.covid19india.org/v3/data.json") as url:
         raw_data = loads(url.read().decode())
 
     if selector == "-s":
-        region = region.upper()
-        delta = raw_data[region].get('delta', "N/A")
+        data = raw_data[state]
+        delta = raw_data[state].get('delta', "N/A")
         if delta == "N/A":
             delta_cnf = "N/A"
             delta_dec = "N/A"
             delta_rec = "N/A"
 
         else:
-            delta_cnf = raw_data[region]['delta'].get('confirmed', 0)
-            delta_dec = raw_data[region]['delta'].get('deceased', 0)
-            delta_rec = raw_data[region]['delta'].get('recovered', 0)
+            delta_cnf = data['delta'].get('confirmed', 0)
+            delta_dec = data['delta'].get('deceased', 0)
+            delta_rec = data['delta'].get('recovered', 0)
 
-        output_text = f"`Confirmed    : {raw_data[region]['total'].get('confirmed', 0)} ({ delta_cnf })`\n"
-        output_text += f"`Active      : {raw_data[region]['total'].get('confirmed', 0) - ( raw_data[region]['total'].get('recovered', 0) + raw_data[region]['total'].get('deceased', 0) )}`\n"
-        output_text += f"`Deaths      : {raw_data[region]['total'].get('deceased', 0)} ({ delta_dec })`\n"
-        output_text += f"`Recovered   : {raw_data[region]['total'].get('recovered', 0)} ({delta_rec })`\n"
+        output_text = f"`Confirmed    : {data['total'].get('confirmed', 0)} ({ delta_cnf })`\n"
+        output_text += f"`Active      : {data['total'].get('confirmed', 0) - ( data['total'].get('recovered', 0) + data['total'].get('deceased', 0) )}`\n"
+        output_text += f"`Deaths      : {data['total'].get('deceased', 0)} ({ delta_dec })`\n"
+        output_text += f"`Recovered   : {data['total'].get('recovered', 0)} ({delta_rec })`\n"
         output_text += (
             "`Last update : "
-            f"{datetime.fromisoformat(raw_data[region]['meta']['last_updated']).strftime('%A, %d. %B %Y %I:%M%p %Z')}`\n"
+            f"{datetime.fromisoformat(raw_data[state]['meta']['last_updated']).strftime('%A, %d. %B %Y %I:%M%p %Z')}`\n"
+        )
+        output_text += f"Data provided by [Covid19India.org](https://api.covid19india.org/)"
+
+    elif selector == "-r":
+        data = raw_data[state][district]
+        delta = data.get('delta', "N/A")
+        if delta == "N/A":
+            delta_cnf = "N/A"
+            delta_dec = "N/A"
+            delta_rec = "N/A"
+
+        else:
+            delta_cnf = data['delta'].get('confirmed', 0)
+            delta_dec = data['delta'].get('deceased', 0)
+            delta_rec = data['delta'].get('recovered', 0)
+
+        output_text = f"`Confirmed    : {data['total'].get('confirmed', 0)} ({ delta_cnf })`\n"
+        output_text += f"`Active      : {data['total'].get('confirmed', 0) - ( data['total'].get('recovered', 0) + data['total'].get('deceased', 0) )}`\n"
+        output_text += f"`Deaths      : {data['total'].get('deceased', 0)} ({ delta_dec })`\n"
+        output_text += f"`Recovered   : {data['total'].get('recovered', 0)} ({delta_rec })`\n"
+        output_text += (
+            "`Last update : "
+            f"{datetime.fromisoformat(raw_data[state]['meta']['last_updated']).strftime('%A, %d. %B %Y %I:%M%p %Z')}`\n"
         )
         output_text += f"Data provided by [Covid19India.org](https://api.covid19india.org/)"
 
