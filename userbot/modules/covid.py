@@ -43,10 +43,21 @@ async def corona(event):
 
     if selector == "-s":
         region = region.upper()
-        output_text = f"`Confirmed    : {raw_data[region]['total'].get('confirmed', 0)} ({ raw_data[region]['delta'].get('confirmed', 0) })`\n"
+        delta = raw_data[region].get('delta', "N/A")
+        if delta == "N/A":
+            delta_cnf = "N/A"
+            delta_dec = "N/A"
+            delta_rec = "N/A"
+
+        else:
+            delta_cnf = raw_data[region]['delta'].get('confirmed', 0)
+            delta_dec = raw_data[region]['delta'].get('deceased', 0)
+            delta_rec = raw_data[region]['delta'].get('recovered', 0)
+
+        output_text = f"`Confirmed    : {raw_data[region]['total'].get('confirmed', 0)} ({ delta_cnf })`\n"
         output_text += f"`Active      : {raw_data[region]['total'].get('confirmed', 0) - ( raw_data[region]['total'].get('recovered', 0) + raw_data[region]['total'].get('deceased', 0) )}`\n"
-        output_text += f"`Deaths      : {raw_data[region]['total'].get('deceased', 0)} ({raw_data[region]['delta'].get('deceased', 0)})`\n"
-        output_text += f"`Recovered   : {raw_data[region]['total'].get('recovered', 0)} ({raw_data[region]['delta'].get('recovered', 0)})`\n"
+        output_text += f"`Deaths      : {raw_data[region]['total'].get('deceased', 0)} ({ delta_dec })`\n"
+        output_text += f"`Recovered   : {raw_data[region]['total'].get('recovered', 0)} ({delta_rec })`\n"
         output_text += (
             "`Last update : "
             f"{datetime.fromisoformat(raw_data['meta']['last_update']).strftime('%A, %d. %B %Y %I:%M%p %Z')}`\n"
