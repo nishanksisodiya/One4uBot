@@ -8,7 +8,7 @@ from datetime import datetime
 from covid import Covid
 from userbot import CMD_HELP
 from userbot.events import register
-from json import load
+from json import loads
 from urllib.request import urlopen
 
 
@@ -38,9 +38,8 @@ async def corona(event):
     await event.edit("`Processing...`")
     selector = event.pattern_match.group(1)
     region = event.pattern_match.group(2)
-    url = urlopen('https://api.covid19india.org/v3/data.json')
-    with urlopen('http://python.org/') as response:
-        raw_data = load(response.read())
+    with urlopen("https://api.covid19india.org/v3/data.json") as url:
+        raw_data = loads(url.read().decode())
 
     if selector == "-s":
         region = region.upper()
