@@ -36,7 +36,7 @@ async def corona(event):
 @register(outgoing=True, pattern="^.covidindia (.*)")
 async def corona(event):
     await event.edit("`Processing...`")
-    args = event.pattern_match.group(1).split()
+    args = event.pattern_match.group(1).split(" ", 2)
     selector = args[0]
     state = args[1].upper()
     district = ""
