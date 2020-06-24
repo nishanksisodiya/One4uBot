@@ -650,7 +650,7 @@ FUX_ITEMS = [
 
 WHERE = ["in the chest", "on the head", "on the butt", "on the crotch"]
 
-mid_fing = [
+MIDFING = [
     str("```...................."
         "../´¯/) \r\n"
         "...................."
@@ -1499,8 +1499,8 @@ async def sayhi(e):
 
 
 @register(outgoing=True, pattern="^.midfing$")
-async def sayhi(e):
-    await e.edit(choice(mid_fing))
+async def mid_fing(e):
+    await e.edit(choice(MIDFING))
 
 
 @register(outgoing=True, pattern="^.gey$")
