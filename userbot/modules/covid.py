@@ -72,7 +72,7 @@ async def corona_india(event):
 
     elif selector == "-r":
         district = args[2].title()
-        if state in raw_data[state] and district in raw_data[state]['districts']:
+        if state in raw_data and district in raw_data[state]['districts']:
             data = raw_data[state]['districts'][district]
             delta = data.get('delta', "N/A")
             if delta == "N/A":
