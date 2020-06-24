@@ -68,7 +68,7 @@ async def corona(event):
 
     elif selector == "-r":
         district = args[2].title()
-        data = raw_data[state][district]
+        data = raw_data[state]['districts'][district]
         delta = data.get('delta', "N/A")
         if delta == "N/A":
             delta_cnf = "N/A"
