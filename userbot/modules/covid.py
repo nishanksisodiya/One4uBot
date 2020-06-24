@@ -36,14 +36,13 @@ async def corona(event):
 @register(outgoing=True, pattern="^.covidindia (.*)")
 async def corona_india(event):
     await event.edit("`Processing...`")
-    args = event.pattern_match.group(1).split(" ", 2)
-    selector = args[0]
-    state = args[1].upper()
+    args = event.pattern_match.group(1).split(" ", 1)
+    state = args[0].upper()
     district = ""
     with urlopen("https://api.covid19india.org/v3/data.json") as url:
         raw_data = loads(url.read().decode())
 
-    if selector == "-s":
+    if len(args) == 1:
         if state in raw_data:
             data = raw_data[state]
             delta = raw_data[state].get('delta', "N/A")
@@ -70,8 +69,8 @@ async def corona_india(event):
         else:
             output_text = f"Invalid State code {state}"
 
-    elif selector == "-r":
-        district = args[2].title()
+    elif len(args) == 2:
+        district = args[1].title()
         if state in raw_data and district in raw_data[state]['districts']:
             data = raw_data[state]['districts'][district]
             delta = data.get('delta', "N/A")
@@ -111,7 +110,5 @@ CMD_HELP.update({
         "\nUsage: Get an information about data covid-19 in your country.\n\n"
         ".covidindia <selector> <args>"
         "\nUsage: Get an information about data covid-19 in your State/UT/District.\n"
-        "\t<selector>: '-s' for State/UT, '-r' for district\n"
-        "\tFor State: specify State/UT code after selector __eg. -s mp__\n"
-        "\tFor Disrtict: specify State/UT code and District name after selector __eg. -s dl new delhi__\n"
+        "\tSpecify State/UT code and District(optional) __eg: .covidindia mp ratlam__\n"
 })
