@@ -4,11 +4,12 @@
 # you may not use this file except in compliance with the License.
 #
 # Port to UserBot by @MoveAngel
-from json import load
 from datetime import datetime
 from covid import Covid
 from userbot import CMD_HELP
 from userbot.events import register
+from json import load
+from urllib import urlopen
 
 
 @register(outgoing=True, pattern="^.covid (.*)")
@@ -37,8 +38,8 @@ async def corona(event):
     await event.edit("`Processing...`")
     selector = event.pattern_match.group(1)
     region = event.pattern_match.group(2)
-    with open('https://api.covid19india.org/v3/data.json') as f:
-        raw_data = load(f)
+    url = urlopen('https://api.covid19india.org/v3/data.json')
+    raw_data = load(url.read())
 
     if selector == "-s":
         region = region.upper()
