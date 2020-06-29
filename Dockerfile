@@ -69,7 +69,7 @@ RUN python3 -m ensurepip \
 #
 # Clone repo and prepare working directory
 #
-RUN git clone -b sql-extended https://github.com/MoveAngel/One4uBot /root/One4uBot
+RUN git clone -b sql-extended https://github.com/nishanksisodiya/one4ubot /root/One4uBot
 RUN mkdir /root/One4uBot/bin/
 WORKDIR /root/One4uBot/
 

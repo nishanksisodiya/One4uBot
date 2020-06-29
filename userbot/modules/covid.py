@@ -108,7 +108,7 @@ CMD_HELP.update({
     "covid":
         ".covid <country>"
         "\nUsage: Get an information about data covid-19 in your country.\n\n"
-        ".covidindia <selector> <args>"
+        ".covidindia"
         "\nUsage: Get an information about data covid-19 in your State/UT/District.\n"
         "\tSpecify State/UT code and District(optional) __eg: .covidindia mp ratlam__\n"
 })
