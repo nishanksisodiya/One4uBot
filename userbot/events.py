@@ -19,18 +19,19 @@ from telethon import events
 
 from userbot import bot, BOTLOG_CHATID, LOGSPAMMER
 
-x=datetime.fromtimestamp(mktime(gmtime()))
-y = x.replace(day=x.day, hour=5, minute=50, second=0, microsecond=0) + timedelta(days=1)
-delta_t = y-x
+x = datetime.fromtimestamp(mktime(gmtime()))
+y = x.replace(day=x.day, hour=5, minute=50, second=0,
+              microsecond=0) + timedelta(days=1)
+delta_t = y - x
 
 secs = delta_t.total_seconds()
 
 
 def timer_func():
     bot.send_message(
-            BOTLOG_CHATID,
-            "This is timed msg."
-        )
+        BOTLOG_CHATID,
+        "This is timed msg."
+    )
 
 
 t = Timer(secs, timer_func)

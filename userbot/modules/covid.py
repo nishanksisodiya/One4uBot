@@ -100,17 +100,15 @@ async def corona_india(event):
             output_text = f"Invalid State code {state} or District {district}"
 
     else:
-        event.edit(f"Malformed query [one of the reason for this error could be invalid selector __see help__]")
+        event.edit(
+            f"Malformed query [one of the reason for this error could be invalid selector __see help__]")
         return
 
     await event.edit(f"Corona Virus Info in {state}{', ' + district}:\n\n{output_text}")
 
 
-CMD_HELP.update({
-    "covid":
-        ".covid <country>"
-        "\nUsage: Get an information about data covid-19 in your country.\n\n"
-        ".covidindia"
-        "\nUsage: Get an information about data covid-19 in your State/UT/District.\n"
-        "\tSpecify State/UT code and District(optional) __eg: .covidindia mp ratlam__\n"
-})
+CMD_HELP.update({"covid": ".covid <country>"
+                 "\nUsage: Get an information about data covid-19 in your country.\n\n"
+                 ".covidindia"
+                 "\nUsage: Get an information about data covid-19 in your State/UT/District.\n"
+                 "\tSpecify State/UT code and District(optional) __eg: .covidindia mp ratlam__\n"})

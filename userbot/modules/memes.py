@@ -638,9 +638,7 @@ FUXK_TEMPLATES = [
     "Can't you see the \"fuck you\" in my smile?",
     "I hope one day, you choke on all the shit you talk.",
     "Everyone has the right to be stupid, but you’re abusing the privilege.",
-    "Stupidity is not a crime so you are free to go."
-
-]
+    "Stupidity is not a crime so you are free to go."]
 
 FUX_ITEMS = [
     "a kane",
@@ -1077,13 +1075,13 @@ async def zal(zgfy):
 
             if textz == 0:
                 charac = charac.strip() + \
-                         choice(ZALG_LIST[0]).strip()
+                    choice(ZALG_LIST[0]).strip()
             elif textz == 1:
                 charac = charac.strip() + \
-                         choice(ZALG_LIST[1]).strip()
+                    choice(ZALG_LIST[1]).strip()
             else:
                 charac = charac.strip() + \
-                         choice(ZALG_LIST[2]).strip()
+                    choice(ZALG_LIST[2]).strip()
 
         reply_text.append(charac)
 
