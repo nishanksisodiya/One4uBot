@@ -18,10 +18,10 @@ from telethon.tl.functions.channels import (EditAdminRequest,
                                             EditBannedRequest,
                                             EditPhotoRequest)
 from telethon.tl.functions.messages import UpdatePinnedMessageRequest
-from telethon.tl.types import (PeerChannel, ChannelParticipantsAdmins, 
-                               ChannelParticipantAdmin, ChatAdminRights, 
-                               ChatBannedRights, MessageEntityMentionName, 
-                               MessageMediaPhoto, ChannelParticipantsBots, 
+from telethon.tl.types import (PeerChannel, ChannelParticipantsAdmins,
+                               ChannelParticipantAdmin, ChatAdminRights,
+                               ChatBannedRights, MessageEntityMentionName,
+                               MessageMediaPhoto, ChannelParticipantsBots,
                                ChannelParticipantCreator)
 
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, bot
@@ -143,8 +143,6 @@ async def promote(promt):
         await promt.client(
             EditAdminRequest(promt.chat_id, user.id, new_rights, rank))
         await promt.edit("`Promoted Successfully!`")
-        await sleep(3)
-        await promt.delete()
 
     # If Telethon spit BadRequestError, assume
     # we don't have Promote permission
@@ -200,8 +198,6 @@ async def demote(dmod):
         await dmod.edit(NO_PERM)
         return
     await dmod.edit("`Demoted Successfully!`")
-    await sleep(3)
-    await dmod.delete()
 
     # Announce to the logging group if we have demoted successfully
     if BOTLOG:
@@ -232,8 +228,6 @@ async def ban(bon):
 
     # Announce that we're going to whack the pest
     await bon.edit("`Whacking the pest!`")
-    await sleep(3)
-    await bon.delete()
 
     try:
         await bon.client(EditBannedRequest(bon.chat_id, user.id,
@@ -254,9 +248,12 @@ async def ban(bon):
     # is done gracefully
     # Shout out the ID, so that fedadmins can fban later
     if reason:
-        await bon.edit(f"`{str(user.id)}` was banned !!\nReason: {reason}")
+        await bon.edit(f"{user.first_name} was banned !!\
+        \nID: `{str(user.id)}`\
+        \nReason: {reason}")
     else:
-        await bon.edit(f"`{str(user.id)}` was banned !!")
+        await bon.edit(f"{user.first_name} was banned !!\
+        \nID: `{str(user.id)}`")
     # Announce to the logging group if we have banned the person
     # successfully!
     if BOTLOG:
@@ -293,8 +290,7 @@ async def nothanos(unbon):
         await unbon.client(
             EditBannedRequest(unbon.chat_id, user.id, UNBAN_RIGHTS))
         await unbon.edit("```Unbanned Successfully```")
-        await sleep(3)
-        await unbon.delete()
+
         if BOTLOG:
             await unbon.client.send_message(
                 BOTLOG_CHATID, "#UNBAN\n"
@@ -353,8 +349,7 @@ async def spider(spdr):
                 await spdr.edit(f"`Safely taped !!`\nReason: {reason}")
             else:
                 await spdr.edit("`Safely taped !!`")
-                await sleep(3)
-                await spdr.delete()
+
             # Announce to logging group
             if BOTLOG:
                 await spdr.client.send_message(
@@ -402,8 +397,7 @@ async def unmoot(unmot):
             await unmot.client(
                 EditBannedRequest(unmot.chat_id, user.id, UNBAN_RIGHTS))
             await unmot.edit("```Unmuted Successfully```")
-            await sleep(3)
-            await unmot.delete()
+
         except UserIdInvalidError:
             await unmot.edit("`Uh oh my unmute logic broke!`")
             return
@@ -583,7 +577,6 @@ async def rm_deletedacc(show):
                 EditBannedRequest(show.chat_id, user.id, UNBAN_RIGHTS))
             del_u += 1
 
-
     if del_u > 0:
         del_status = f"Cleaned **{del_u}** deleted account(s)"
 
@@ -591,11 +584,9 @@ async def rm_deletedacc(show):
         del_status = f"Cleaned **{del_u}** deleted account(s) \
         \n**{del_a}** deleted admin accounts are not removed"
 
-
     await show.edit(del_status)
     await sleep(2)
     await show.delete()
-
 
     if BOTLOG:
         await show.client.send_message(
@@ -647,15 +638,17 @@ async def _(event):
         async for x in bot.iter_participants(chat, filter=ChannelParticipantsAdmins):
             if not x.deleted:
                 if isinstance(x.participant, ChannelParticipantCreator):
-                    mentions += "\n 👑 [{}](tg://user?id={}) `{}`".format(x.first_name, x.id, x.id)
+                    mentions += "\n 👑 [{}](tg://user?id={}) `{}`".format(
+                        x.first_name, x.id, x.id)
         mentions += "\n"
         async for x in bot.iter_participants(chat, filter=ChannelParticipantsAdmins):
             if not x.deleted:
                 if isinstance(x.participant, ChannelParticipantAdmin):
-                    mentions += "\n 🔰 [{}](tg://user?id={}) `{}`".format(x.first_name, x.id, x.id)
- 
+                    mentions += "\n 🔰 [{}](tg://user?id={}) `{}`".format(
+                        x.first_name, x.id, x.id)
+
       #  mentions += "\n 💘 [Deleted Account](tg://user?id=689811472) `689811472`"
-            
+
     except Exception as e:
         mentions += " " + str(e) + "\n"
     if should_mention_admins:
@@ -702,8 +695,6 @@ async def pin(msg):
         return
 
     await msg.edit("`Pinned Successfully!`")
-    await sleep(3)
-    await msg.delete()
 
     user = await get_user_from_id(msg.from_id, msg)
 
@@ -737,7 +728,7 @@ async def kick(usr):
 
     try:
         await usr.client.kick_participant(usr.chat_id, user.id)
-        await sleep(.5)
+        await sleep(1)
     except Exception as e:
         await usr.edit(NO_PERM + f"\n{str(e)}")
         return
@@ -749,8 +740,6 @@ async def kick(usr):
     else:
         await usr.edit(
             f"`Kicked` [{user.first_name}](tg://user?id={user.id})`!`")
-        await sleep(3)
-        await usr.delete()
 
     if BOTLOG:
         await usr.client.send_message(
@@ -848,7 +837,7 @@ async def get_user_from_id(user, event):
 
     return user_obj
 
-  
+
 @register(outgoing=True, pattern="^.usersdel ?(.*)")
 async def get_usersdel(show):
     """ For .usersdel command, list all of the deleted users in a chat. """
@@ -865,7 +854,7 @@ async def get_usersdel(show):
         else:
             searchq = show.pattern_match.group(1)
             async for user in show.client.iter_participants(
-                   show.chat_id, search=f'{searchq}'):
+                    show.chat_id, search=f'{searchq}'):
                 if not user.deleted:
                     mentions += f"\n[{user.first_name}](tg://user?id={user.id}) `{user.id}`"
          #       else:
@@ -938,6 +927,7 @@ async def get_userdel_from_id(user, event):
 
     return user_obj
 
+
 @register(outgoing=True, pattern="^.bots(?: |$)(.*)")
 async def _(event):
     """ For .listbot command, list all of the bots of the chat. """
@@ -960,14 +950,15 @@ async def _(event):
     try:
         async for x in bot.iter_participants(chat, filter=ChannelParticipantsBots):
             if isinstance(x.participant, ChannelParticipantAdmin):
-                mentions += "\n 👑 [{}](tg://user?id={}) `{}`".format(x.first_name, x.id, x.id)
+                mentions += "\n 👑 [{}](tg://user?id={}) `{}`".format(
+                    x.first_name, x.id, x.id)
             else:
-                mentions += "\n [{}](tg://user?id={}) `{}`".format(x.first_name, x.id, x.id)
+                mentions += "\n [{}](tg://user?id={}) `{}`".format(
+                    x.first_name, x.id, x.id)
     except Exception as e:
         mentions += " " + str(e) + "\n"
     await event.edit(mentions)
 
-  
 
 CMD_HELP.update({
     "admin":

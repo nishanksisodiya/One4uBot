@@ -13,7 +13,12 @@ import heroku3
 import aiohttp
 import math
 
-from userbot import (CMD_HELP, HEROKU_APP_NAME, HEROKU_API_KEY, BOTLOG, BOTLOG_CHATID)
+from userbot import (
+    CMD_HELP,
+    HEROKU_APP_NAME,
+    HEROKU_API_KEY,
+    BOTLOG,
+    BOTLOG_CHATID)
 from userbot.events import register
 
 heroku_api = "https://api.heroku.com"
@@ -35,8 +40,7 @@ else:
 async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:
-        await var.edit("`[HEROKU]"
-                       "\nPlease setup your`  **HEROKU_APP_NAME**.")
+        await var.edit("`Please setup your`  **HEROKU_APP_NAME**.")
         return False
     if exe == "get":
         await var.edit("`Getting information...`")
@@ -135,9 +139,9 @@ async def dyno_usage(dyno):
     )
     user_id = Heroku.account().id
     headers = {
-     'User-Agent': useragent,
-     'Authorization': f'Bearer {HEROKU_API_KEY}',
-     'Accept': 'application/vnd.heroku+json; version=3.account-quotas',
+        'User-Agent': useragent,
+        'Authorization': f'Bearer {HEROKU_API_KEY}',
+        'Accept': 'application/vnd.heroku+json; version=3.account-quotas',
     }
     path = "/accounts/" + user_id + "/actions/get-quota"
     async with aiohttp.ClientSession() as session:
@@ -177,14 +181,14 @@ async def dyno_usage(dyno):
             AppMinutes = math.floor(AppQuotaUsed % 60)
 
             await dyno.edit(
-                 "**Dyno Usage**:\n\n"
-                 f" -> `Dyno usage for`  **{app.name}**:\n"
-                 f"     •  **{AppHours} hour(s), "
-                 f"{AppMinutes} minute(s)  -  {AppPercentage}%**"
-                 "\n-------------------------------------------------------------\n"
-                 " -> `Dyno hours quota remaining this month`:\n"
-                 f"     •  **{hours} hour(s), {minutes} minute(s)  "
-                 f"-  {percentage}%**"
+                "**Dyno Usage**:\n\n"
+                f" -> `Dyno usage for`  **{app.name}**:\n"
+                f"     •  **{AppHours} hour(s), "
+                f"{AppMinutes} minute(s)  -  {AppPercentage}%**"
+                "\n-------------------------------------------------------------\n"
+                " -> `Dyno hours quota remaining this month`:\n"
+                f"     •  **{hours} hour(s), {minutes} minute(s)  "
+                f"-  {percentage}%**"
             )
             return True
 

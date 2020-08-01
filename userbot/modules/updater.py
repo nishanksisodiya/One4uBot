@@ -15,7 +15,15 @@ import sys
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
-from userbot import (BOTLOG, BOTLOG_CHATID, CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, UPSTREAM_REPO_URL, UPSTREAM_REPO_BRANCH, USER_TERM_ALIAS)
+from userbot import (
+    BOTLOG,
+    BOTLOG_CHATID,
+    CMD_HELP,
+    HEROKU_API_KEY,
+    HEROKU_APP_NAME,
+    UPSTREAM_REPO_URL,
+    UPSTREAM_REPO_BRANCH,
+    USER_TERM_ALIAS)
 from userbot.events import register
 
 requirements_path = path.join(
@@ -51,7 +59,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         heroku_applications = heroku.apps()
         if HEROKU_APP_NAME is None:
             await event.edit(
-                '`[HEROKU]: Please set up the` **HEROKU_APP_NAME** `variable'
+                '`Please set up HEROKU_APP_NAME variable'
                 ' to be able to deploy newest changes of userbot.`'
             )
             repo.__del__()
@@ -65,9 +73,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                 f'{txt}\n`Invalid Heroku credentials for deploying userbot dyno.`'
             )
             return repo.__del__()
-        await event.edit('`[HEROKU]:'
-                         '\nUserbot dyno build in progress, please wait...`'
-                         )
+        await event.edit('`Userbot dyno build in progress, please wait...`')
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
         heroku_git_url = heroku_app.git_url.replace(
@@ -91,9 +97,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                 "Your One4uBot was successfully updated")
 
     else:
-        await event.edit('`[HEROKU]:'
-                         '\nPlease set up` **HEROKU_API_KEY** `variable.`'
-                         )
+        await event.edit('`Please set up HEROKU_API_KEY variable.`')
     return
 
 
@@ -107,9 +111,9 @@ async def update(event, repo, ups_rem, ac_br):
                      'Bot is restarting... Wait for a second!`')
 
     if BOTLOG:
-            await event.client.send_message(
-                BOTLOG_CHATID, "#UPDATE \n"
-                "Your One4uBot was successfully updated")
+        await event.client.send_message(
+            BOTLOG_CHATID, "#UPDATE \n"
+            "Your One4uBot was successfully updated")
 
     # Spin a new instance of bot
     args = [sys.executable, "-m", "userbot"]
