@@ -10,12 +10,31 @@ import sys
 from asyncio import create_subprocess_shell as asyncsubshell
 from asyncio import subprocess as asyncsub
 from os import remove
-from time import gmtime, strftime
+from time import gmtime, strftime, mktime
 from traceback import format_exc
+from datetime import datetime, timedelta
+from threading import Timer
 
 from telethon import events
 
 from userbot import bot, BOTLOG_CHATID, LOGSPAMMER
+
+x=datetime.fromtimestamp(mktime(gmtime()))
+y = x.replace(day=x.day, hour=5, minute=50, second=0, microsecond=0) + timedelta(days=1)
+delta_t = y-x
+
+secs = delta_t.total_seconds()
+
+
+def timer_func():
+    bot.send_message(
+            BOTLOG_CHATID,
+            "This is timed msg."
+        )
+
+
+t = Timer(secs, timer_func)
+t.start()
 
 
 def register(**args):
